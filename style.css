@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -9,11 +15,12 @@
   width: 800px;
   position: relative;
   margin: 30px auto;
+  
 }
 #carousel .gallery {
   height: 100%;
 }
-#carousel .img {
+#carousel img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -21,7 +28,7 @@
   display: none;
 }
 
-#carousel .img.active {
+#carousel img.active {
   display: block;
 }
 #carousel .bi {
@@ -31,6 +38,14 @@
   cursor: pointer;
   translate: 0 -50%;
 }
+#prev{
+  left: -40px;
+}
+#next{
+  right: -40px;
+}
+
+
 
 #thumbnails{
     width: 700px;
