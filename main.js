@@ -5,7 +5,7 @@ console.log("JS OK");
 const nextButton = document.getElementById("next");
 const prevButtonn = document.getElementById("prev");
 //recupero le immagini dentro il carousel //selezione l'intero nodo di immagini
-const gallery = document.querySelector("gallery");
+const gallery = document.querySelector(".gallery");
 //lista delle immagini da passare al
 const sources = [
   "img/01.webp",
