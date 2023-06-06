@@ -17,11 +17,12 @@ const sources = [
 
 // html per le immagini
 let imageElements = " ";
-
+console.log(imageElements);
 
 // Per ogni source creo un tag img
 for (let i = 0; i < sources.length; i++) {
     imageElements += `<img src="${sources[i]}"  alt="Landscape ${i + 1}">`;
+    console.log(imageElements);
   }
 
 
@@ -30,7 +31,7 @@ for (let i = 0; i < sources.length; i++) {
 
 //inserire img nel dom
 gallery.innerHTML = imageElements;
-
+console.log(imageElements);
 const images = querySelector("#carousel img");
 // Variabile di appoggio per gli elementi da montare
 
