@@ -28,7 +28,7 @@ for (let i = 0; i < sources.length; i++) {
   console.log(imageElements);
 }
 
-const images = querySelector(".gallery img");
+const images = document.querySelector(".gallery img");
 // Variabile di appoggio per gli elementi da montare
 
 let currentIndex = 0;
