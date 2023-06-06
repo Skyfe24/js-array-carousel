@@ -21,18 +21,14 @@ console.log(imageElements);
 
 // Per ogni source creo un tag img
 for (let i = 0; i < sources.length; i++) {
-    imageElements += `<img src="${sources[i]}"  alt="Landscape ${i + 1}">`;
-    console.log(imageElements);
-  }
+  imageElements += `<img src="${sources[i]}"  alt="Landscape ${i + 1}">`;
+  console.log(imageElements);
+  //inserire img nel dom
+  gallery.innerHTML = imageElements;
+  console.log(imageElements);
+}
 
-
-
-
-
-//inserire img nel dom
-gallery.innerHTML = imageElements;
-console.log(imageElements);
-const images = querySelector("#carousel img");
+const images = querySelector(".gallery img");
 // Variabile di appoggio per gli elementi da montare
 
 let currentIndex = 0;
@@ -56,5 +52,3 @@ prevButton.addEventListener("click", function () {
   if (!currentIndex) return;
   images[currentIndex].classList.add("active");
 });
-
-
