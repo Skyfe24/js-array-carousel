@@ -1,54 +1,29 @@
-console.log("JS OK");
-// OPERAZIONI INIZIALI
+let slide_img = ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp'];
+let sliderElement = document.querySelector('.slider');
+let sliderContent = "";
 
-//recupero i tasti dal dom
-const nextButton = document.getElementById("next");
-const prevButtonn = document.getElementById("prev");
-//recupero le immagini dentro il carousel //selezione l'intero nodo di immagini
-const gallery = document.querySelector(".gallery");
-//lista delle immagini da passare al
-const sources = [
-  "img/01.webp",
-  "img/02.webp",
-  "img/03.webp",
-  "img/04.webp",
-  "img/05.webp",
-];
-
-// html per le immagini
-let imageElements = " ";
-console.log(imageElements);
-
-// Per ogni source creo un tag img
-for (let i = 0; i < sources.length; i++) {
-  imageElements += `<img src="${sources[i]}"  alt="Landscape ${i + 1}">`;
-  console.log(imageElements);
-  //inserire img nel dom
-  gallery.innerHTML = imageElements;
-  console.log(imageElements);
+for (let i = 0; i < slide_img.length; i++) {
+  let currentImage = slide_img[i];
+  sliderContent += `<div class="slide"><img src="./img/${currentImage}"></div>`;
 }
 
-const images = document.querySelector(".gallery img");
-// Variabile di appoggio per gli elementi da montare
+sliderElement.innerHTML = sliderContent;
 
-let currentIndex = 0;
+let allSlides = document.getElementsByClassName('slide');
+let activeElement = 0;
+allSlides[activeElement].classList.add('active');
 
-// la prima immagine deve essere quella attiva (di partenza)
-images[currentIndex].classList.add("active");
+let prevButton = document.querySelector('.prev');
+let nextButton = document.querySelector('.next');
 
-// logica dinamica----------------------------------------------------------------------
-
-//Metto in ascolto il button next
-nextButton.addEventListener("click", function () {
-  images[currentIndex].classList.remove("active");
-  currentIndex++;
-  if (currentIndex === images.length - 1) return;
-  images[currentIndex].classList.add("active");
+nextButton.addEventListener('click', function() {
+  allSlides[activeElement].classList.remove('active');
+  activeElement = (activeElement + 1) % slide_img.length;
+  allSlides[activeElement].classList.add('active');
 });
-//Metto in ascolto il button prev
-prevButton.addEventListener("click", function () {
-  images[currentIndex].classList.remove("active");
-  currentIndex--;
-  if (!currentIndex) return;
-  images[currentIndex].classList.add("active");
+
+prevButton.addEventListener('click', function() {
+  allSlides[activeElement].classList.remove('active');
+  activeElement = (activeElement - 1 + slide_img.length) % slide_img.length;
+  allSlides[activeElement].classList.add('active');
 });
